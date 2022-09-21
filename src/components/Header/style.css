@@ -1,0 +1,36 @@
+.header {
+  grid-column: 1/-1;
+  border-bottom: 1px solid var(--secondary-gray);
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.6rem 0;
+}
+
+.logo {
+  width: 3.5rem;
+}
+
+.top-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 3.2rem;
+}
+
+.top-nav-link:link,
+.top-nav-link:visited {
+  color: var(--secondary-gray);
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.top-nav-link:hover,
+.top-nav-link:active,
+.top-nav-link.active {
+  color: var(--primary-gray);
+}

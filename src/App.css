@@ -1,3 +1,41 @@
-.app {
+/* Spacing system */
+
+/* Font-size system */
+
+/* Color */
+/* Gray: #f1f3f5, #adb5bd, #343a40 */
+:root {
+  --primary-gray: #343a40;
+  --secondary-gray: #adb5bd;
+  --tertiary-gray: #f1f3f5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  color: var(--primary-gray);
   text-align: center;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.bg-gray {
+  background-color: var(--tertiary-gray);
+}
+
+.bg-white {
+  background-color: #fff;
 }
