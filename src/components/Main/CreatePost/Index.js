@@ -1,17 +1,22 @@
-import React, { useState } from "react";
-import Modal from "../../shared/Modal";
-import "./style.css";
+import React, { useState } from 'react';
+import Modal from '../../shared/Modal';
+import './style.css';
 
 const CreatePost = () => {
   const [createPostModal, setCreatePostModal] = useState(false);
+
+  const onCloseModalHandler = () => {
+    setCreatePostModal(false);
+  };
+
+  const submitPostHandler = payload => {
+    console.log(payload);
+  };
+
   return (
     <div className="create-post bg-white">
       <div className="create-post-input-box">
-        <img
-          src="../../../img/logo.jpg"
-          alt="Profile Image"
-          className="create-post-profile-image"
-        />
+        <img src="../../../img/logo.jpg" alt="Profile Image" className="create-post-profile-image" />
         <input
           className="create-post-input"
           type="text"
@@ -26,8 +31,12 @@ const CreatePost = () => {
       </div> */}
 
       {createPostModal && (
-        <Modal>
-          <h1>Create a post</h1>
+        <Modal
+          className="modal-medium"
+          heading="Create a post"
+          onSubmit={submitPostHandler}
+          onClose={onCloseModalHandler}
+        >
           <div>
             <textarea></textarea>
           </div>

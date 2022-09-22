@@ -1,5 +1,5 @@
-import React from "react";
-import "./style.css";
+import React from 'react';
+import './style.css';
 
 const Header = () => {
   return (
@@ -20,6 +20,11 @@ const Header = () => {
               <li>
                 <a className="top-nav-link" href="#">
                   Profile
+                </a>
+              </li>
+              <li>
+                <a className="top-nav-link" href="#">
+                  Sale
                 </a>
               </li>
             </ul>

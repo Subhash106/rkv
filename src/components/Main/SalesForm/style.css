@@ -1,0 +1,13 @@
+.sales-form {
+  padding: 1.2rem;
+  border-radius: 1.2rem;
+}
+
+.sales-form th {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.sales-form .sub-total {
+  padding: 1.6rem 0.8rem 0 0;
+}

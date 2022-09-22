@@ -1,11 +1,11 @@
-import React from "react";
-import CreatePost from "./CreatePost/Index";
-import "./style.css";
+import React from 'react';
+import SalesForm from './SalesForm/Index';
+import './style.css';
 
 const Main = () => {
   return (
     <div className="main bg-gray">
-      <CreatePost />
+      <SalesForm />
     </div>
   );
 };
