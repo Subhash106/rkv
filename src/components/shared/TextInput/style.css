@@ -1,0 +1,17 @@
+.text-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.input-label {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.input-box {
+  padding: 0.4rem 0.8rem;
+  width: 100%;
+}
