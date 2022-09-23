@@ -31,9 +31,13 @@ html {
 
 body {
   color: var(--primary-gray);
-  text-align: center;
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
+}
+
+.heading-primary {
+  font-size: 3rem;
+  margin-bottom: 1.6rem;
 }
 
 .container {

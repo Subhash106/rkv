@@ -8,6 +8,13 @@
   font-weight: 500;
 }
 
+.sales-form .quantity,
+.sales-form .rate {
+  width: 10rem;
+}
+
 .sales-form .sub-total {
-  padding: 1.6rem 0.8rem 0 0;
+  padding: 1.6rem 0.4rem 0 0;
+  font-size: 1.8rem;
+  font-weight: 700;
 }

@@ -1,8 +1,8 @@
-import React from "react";
-import "./style.css";
+import React from 'react';
+import './style.css';
 
 const AsideLeft = () => {
-  return <div className="aside-left">AsideLeft</div>;
+  return <div className="aside-left"></div>;
 };
 
 export default AsideLeft;
