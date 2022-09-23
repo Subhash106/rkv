@@ -1,0 +1,54 @@
+{
+  "name": "RKV-Point of Sale",
+  "short_name": "RKV-POS",
+  "icons": [
+    {
+      "src": "./img/icons/50.png",
+      "type": "image/png",
+      "size": "50x50"
+    },
+    {
+      "src": "./img/icons/100.png",
+      "type": "image/png",
+      "size": "100x100"
+    },
+    {
+      "src": "./img/icons/50.png",
+      "type": "image/png",
+      "size": "50x50"
+    },
+    {
+      "src": "./img/icons/144.png",
+      "type": "image/png",
+      "size": "144x144"
+    },
+    {
+      "src": "./img/icons/190.png",
+      "type": "image/png",
+      "size": "190x190"
+    },
+    {
+      "src": "./img/icons/256.png",
+      "type": "image/png",
+      "size": "256x256"
+    },
+    {
+      "src": "./img/icons/512.png",
+      "type": "image/png",
+      "size": "512x512"
+    },
+    {
+      "src": "./img/icons/1024.png",
+      "type": "image/png",
+      "size": "1024x1024"
+    }
+  ],
+  "start_url": "./index.html",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#2b8a3e",
+  "description": "Point of sale app for RKV",
+  "lang": "en-US"
+}
