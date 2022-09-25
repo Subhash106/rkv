@@ -38,6 +38,7 @@ body {
 .heading-primary {
   font-size: 3rem;
   margin-bottom: 1.6rem;
+  letter-spacing: -0.75px;
 }
 
 .container {
