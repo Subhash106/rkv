@@ -1,7 +1,10 @@
+var STATIC_CACHE_VERSION = 'static';
+var DYNAMIC_CACHE_VERSION = 'dynamic';
+
 self.addEventListener('install', function (event) {
   console.log('[Service Worker] Installing service worker...', event);
   event.waitUntil(
-    caches.open('precache').then(function (cache) {
+    caches.open(STATIC_CACHE_VERSION).then(function (cache) {
       cache.addAll([
         '/',
         './index.html',
@@ -17,7 +20,16 @@ self.addEventListener('install', function (event) {
 
 self.addEventListener('activate', function (event) {
   console.log('[Service Worker] Activating service worker...', event);
-
+  // Cleaning the old cache
+  event.waitUntil(
+    caches.keys().then(function (keyList) {
+      return Promise.all(
+        keyList.map(key => {
+          if (key !== DYNAMIC_CACHE_VERSION && key !== STATIC_CACHE_VERSION) return caches.delete(key);
+        })
+      );
+    })
+  );
   return self.clients.claim();
 });
 
@@ -27,7 +39,12 @@ self.addEventListener('fetch', function (event) {
       if (response) {
         return response;
       } else {
-        return fetch(event.request);
+        return fetch(event.request).then(function (res) {
+          return caches.open(DYNAMIC_CACHE_VERSION).then(function (cache) {
+            cache.put(event.request.url, res.clone());
+            return res;
+          });
+        });
       }
     })
   );

@@ -44,7 +44,7 @@ const SalesFormFields = props => {
               <th className="text-left">Item</th>
               <th className="text-left quantity">Quantity</th>
               <th className="text-left rate">Rate</th>
-              <th className="text-left">Total</th>
+              <th className="text-right">Total</th>
             </tr>
           </thead>
           <tbody>
@@ -80,7 +80,7 @@ const SalesFormFields = props => {
                     type="number"
                   />
                 </th>
-                <th>{el.rate * el.quantity}</th>
+                <th className="text-right">{el.rate * el.quantity}</th>
               </tr>
             ))}
             <tr>
@@ -95,10 +95,13 @@ const SalesFormFields = props => {
         </table>
       </div>
       <div className="row col-md-2">
-        <Button onClick={() => handleSubmit(values)} className="btn-gray">
-          Save
-        </Button>
-        <Button onClick={addItemHandler}>Add Item</Button>
+        <div />
+        <div className="row col-md-2">
+          <Button onClick={() => handleSubmit(values)} className="btn-gray">
+            Save
+          </Button>
+          <Button onClick={addItemHandler}>Add Item</Button>
+        </div>
       </div>
     </div>
   );
