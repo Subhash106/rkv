@@ -14,4 +14,12 @@
 .input-box {
   padding: 0.4rem 0.8rem;
   width: 100%;
+  border: 1px solid var(--tint-2-gray);
+  border-radius: 0.4rem;
+}
+
+input[type='text']:focus,
+input[type='number']:focus {
+  border-width: 1px;
+  border-color: var(--primary-gray);
 }

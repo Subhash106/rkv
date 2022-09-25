@@ -3,7 +3,7 @@
 /* Font-size system */
 
 /* Color */
-/* Gray: #f1f3f5, #adb5bd, #343a40 */
+/* Gray: #f1f3f5, #adb5bd, #343a40, #ccc */
 /* Gray Tints: #495057 */
 /* Primary: #2b8a3e */
 /* Shades: #277c38 */
@@ -12,6 +12,7 @@
   --white: #ffffff;
   --primary-gray: #343a40;
   --tint-gray: #343a40;
+  --tint-2-gray: #ccc;
   --secondary-gray: #adb5bd;
   --tertiary-gray: #f1f3f5;
   --main-primary: #2b8a3e;
@@ -38,6 +39,7 @@ body {
 .heading-primary {
   font-size: 3rem;
   margin-bottom: 1.6rem;
+  letter-spacing: -0.75px;
 }
 
 .container {
