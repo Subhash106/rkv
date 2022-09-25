@@ -1,6 +1,7 @@
 import { Formik } from 'formik';
 // import Yup from 'yup';
 import React from 'react';
+import { DB, isOffline } from '../../shared/utilities';
 import SalesFormFields from './form';
 import './style.css';
 
@@ -22,30 +23,38 @@ const SalesForm = () => {
   //     });
 
   const submitHandler = async payload => {
-    console.log(payload);
-    const userData = await fetch('https://basic-react-a8d88-default-rtdb.firebaseio.com/users.json', {
-      method: 'POST',
-      body: JSON.stringify({
-        mobile: payload.mobile,
-        firstName: payload.firstName,
-        lastName: payload.lastName,
-        address: payload.address
-      })
-    });
+    if (!isOffline()) {
+      const userData = await fetch('https://basic-react-a8d88-default-rtdb.firebaseio.com/users.json', {
+        method: 'POST',
+        body: JSON.stringify({
+          mobile: payload.mobile,
+          firstName: payload.firstName,
+          lastName: payload.lastName,
+          address: payload.address
+        })
+      });
 
-    const userDataResponse = await userData.json();
+      const userDataResponse = await userData.json();
 
-    const orderData = await fetch('https://basic-react-a8d88-default-rtdb.firebaseio.com/orders.json', {
-      method: 'POST',
-      body: JSON.stringify({
-        userId: userDataResponse.name,
-        items: payload.items,
-        subTotal: payload.subTotal
-      })
-    });
+      const orderData = await fetch('https://basic-react-a8d88-default-rtdb.firebaseio.com/orders.json', {
+        method: 'POST',
+        body: JSON.stringify({
+          userId: userDataResponse.name,
+          items: payload.items,
+          subTotal: payload.subTotal
+        })
+      });
+      const orderDataResponse = await orderData.json();
+      console.log('orderDataResponse', orderDataResponse);
+    } else {
+      //Store Data to indexedDb
+      const transactionDB = DB.getTransactionDB();
+      transactionDB.setItem(Date.now(), payload);
 
-    const orderDataResponse = await orderData.json();
-    console.log('orderDataResponse', orderDataResponse);
+      navigator.serviceWorker.ready.then(function (swRegistration) {
+        return swRegistration.sync.register('orderSync');
+      });
+    }
   };
 
   return (
