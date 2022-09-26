@@ -8,7 +8,7 @@ const OrdersTable = props => {
 
   return (
     <>
-      <h2 className="heading-secondary">{title}</h2>
+      {title}
       <table className="orders-table">
         <thead>
           <tr>
