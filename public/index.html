@@ -19,7 +19,7 @@
     <script>
       // var deferredPrompt;
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('./sw.js', { scope: '/', type: 'module' }).then(() => {
+        navigator.serviceWorker.register('./service-worker.js', { scope: '/', type: 'module' }).then(() => {
           console.log('Service worked registered!');
         });
       }
