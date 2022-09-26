@@ -30,12 +30,15 @@ const Orders = () => {
     return offlineOrders;
   };
 
-  useEffect(async () => {
-    const data = await getOnlineOrders();
-    setOnlineOrders(data);
+  useEffect(() => {
+    const getData = async () => {
+      const data = await getOnlineOrders();
+      setOnlineOrders(data);
 
-    const offOrders = await getOfflineOrders();
-    setOfflineOrders(offOrders);
+      const offOrders = await getOfflineOrders();
+      setOfflineOrders(offOrders);
+    };
+    getData();
   }, []);
 
   const syncOfflineOrders = async () => {
