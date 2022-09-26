@@ -1,5 +1,5 @@
-var STATIC_CACHE_VERSION = 'static-v1';
-var DYNAMIC_CACHE_VERSION = 'dynamic-v1';
+var STATIC_CACHE_VERSION = 'static-v17';
+var DYNAMIC_CACHE_VERSION = 'dynamic-v17';
 
 self.addEventListener('install', function (event) {
   console.log('[Service Worker] Installing service worker...', event);
@@ -35,18 +35,19 @@ self.addEventListener('activate', function (event) {
 
 self.addEventListener('fetch', function (event) {
   event.respondWith(
-    caches.match(event.request).then(function (response) {
-      if (response) {
-        return response;
-      } else {
-        return fetch(event.request).then(function (res) {
-          return caches.open(DYNAMIC_CACHE_VERSION).then(function (cache) {
-            cache.put(event.request.url, res.clone());
-            return res;
-          });
-        });
-      }
-    })
+    // caches.match(event.request).then(function (response) {
+    //   if (response) {
+    //     return response;
+    //   } else {
+    //     return fetch(event.request).then(function (res) {
+    //       return caches.open(DYNAMIC_CACHE_VERSION).then(function (cache) {
+    //         cache.put(event.request.url, res.clone());
+    //         return res;
+    //       });
+    //     });
+    //   }
+    // }
+    fetch(event.request)
   );
 });
 

@@ -1,17 +1,20 @@
-import React from "react";
-import AsideLeft from "../AsideLeft/Index";
-import AsideRight from "../AsideRight/Index";
-import Header from "../Header";
-import Main from "../Main/Index";
-import "./style.css";
+import React from 'react';
+import Header from '../Header';
+import Main from '../Main/Index';
+import './style.css';
 
 const Home = () => {
+  if (navigator.onLine) {
+    console.log('online');
+  } else {
+    console.log('offline');
+  }
   return (
     <div className="home">
       <Header />
-      <AsideLeft />
-      <Main />
-      <AsideRight />
+      <div className="container bg-gray">
+        <Main />
+      </div>
     </div>
   );
 };

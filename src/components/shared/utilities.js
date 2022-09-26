@@ -1,6 +1,6 @@
 import localforage from 'localforage';
 
-export const isOffline = () => !navigator.isLine;
+export const isOffline = () => !navigator.onLine;
 
 export const DB = {
   getMasterDB: () =>
@@ -13,8 +13,4 @@ export const DB = {
       driver: localforage.INDEXEDDB,
       name: 'Transaction Data'
     })
-};
-
-export const hello = () => {
-  console.log('Hello');
 };

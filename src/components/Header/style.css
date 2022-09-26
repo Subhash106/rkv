@@ -21,16 +21,17 @@
   gap: 3.2rem;
 }
 
-.top-nav-link:link,
-.top-nav-link:visited {
+.top-nav a:link,
+.top-nav a:visited,
+.top-nav a.inactive {
   color: var(--secondary-gray);
   text-decoration: none;
   font-size: 1.8rem;
   font-weight: 700;
 }
 
-.top-nav-link:hover,
-.top-nav-link:active,
-.top-nav-link.active {
+.top-nav a:hover,
+.top-nav a:active,
+.top-nav a.active {
   color: var(--primary-gray);
 }

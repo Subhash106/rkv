@@ -24,27 +24,13 @@ const SalesForm = () => {
 
   const submitHandler = async payload => {
     if (!isOffline()) {
-      const userData = await fetch('https://basic-react-a8d88-default-rtdb.firebaseio.com/users.json', {
-        method: 'POST',
-        body: JSON.stringify({
-          mobile: payload.mobile,
-          firstName: payload.firstName,
-          lastName: payload.lastName,
-          address: payload.address
-        })
-      });
-
-      const userDataResponse = await userData.json();
-
       const orderData = await fetch('https://basic-react-a8d88-default-rtdb.firebaseio.com/orders.json', {
         method: 'POST',
-        body: JSON.stringify({
-          userId: userDataResponse.name,
-          items: payload.items,
-          subTotal: payload.subTotal
-        })
+        body: JSON.stringify({ ...payload })
       });
+
       const orderDataResponse = await orderData.json();
+
       console.log('orderDataResponse', orderDataResponse);
     } else {
       //Store Data to indexedDb
