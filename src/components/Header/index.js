@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './style.css';
 
 const Header = () => {
@@ -13,19 +14,24 @@ const Header = () => {
           <div className="top-nav">
             <ul>
               <li>
-                <a className="top-nav-link active" href="/">
+                <NavLink
+                  to="/"
+                  className={({ isActive }) => {
+                    console.log(`Home: ${isActive}`);
+                  }}
+                >
                   Home
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a className="top-nav-link" href="#">
-                  Profile
-                </a>
-              </li>
-              <li>
-                <a className="top-nav-link" href="#">
-                  Sale
-                </a>
+                <NavLink
+                  to="/orders"
+                  className={({ isActive }) => {
+                    console.log(`Orders: ${isActive}`);
+                  }}
+                >
+                  Orders
+                </NavLink>
               </li>
             </ul>
           </div>
