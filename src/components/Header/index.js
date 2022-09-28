@@ -8,28 +8,20 @@ const Header = () => {
       <div className="container">
         <header className="main-header">
           <div className="logo-box">
-            <img src="../../../img/logo.jpg" alt="Logo" className="logo" />
+            <NavLink to="/">
+              <img src="../../../img/logo.jpg" alt="Logo" className="logo" />
+            </NavLink>
           </div>
 
           <div className="top-nav">
             <ul>
               <li>
-                <NavLink
-                  to="/"
-                  className={({ isActive }) => {
-                    console.log(`Home: ${isActive}`);
-                  }}
-                >
+                <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>
                   Home
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  to="/orders"
-                  className={({ isActive }) => {
-                    console.log(`Orders: ${isActive}`);
-                  }}
-                >
+                <NavLink to="/orders" className={({ isActive }) => (isActive ? 'active' : '')}>
                   Orders
                 </NavLink>
               </li>
