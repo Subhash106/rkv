@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../Header';
 import Button from '../shared/Button';
-import { DB, isOffline } from '../shared/utilities';
+import { DB } from '../shared/utilities';
 import OrdersTable from './ordersTable';
+import getOfflineStatus from '../shared/getOfflineStatus';
 
 const Orders = () => {
+  const isOffline = getOfflineStatus();
   const [onlineOrders, setOnlineOrders] = useState([]);
   const [offlineOrders, setOfflineOrders] = useState([]);
 
@@ -78,7 +80,7 @@ const Orders = () => {
     return (
       <header className="table-header">
         <h2 className="heading-secondary">Offline Orders</h2>
-        {!isOffline() && <Button onClick={syncOfflineOrders}>Sync</Button>}
+        {!isOffline && <Button onClick={syncOfflineOrders}>Sync</Button>}
       </header>
     );
   };
