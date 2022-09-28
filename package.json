@@ -4,11 +4,12 @@
   "description": "React setup from scartch",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development",
+    "start": "concurrently \"npm run sw:start\" \"webpack-dev-server --mode development\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode development",
     "doc:dev": "mkdocs serve -f documentation/mkdocs.yml",
-    "generate-sw": "workbox generate:sw"
+    "generate-sw": "workbox inject:manifest",
+    "sw:start": "webpack --config public/webpack.config.js --watch"
   },
   "author": "",
   "license": "ISC",
@@ -25,9 +26,11 @@
     "webpack": "^4.19.1",
     "webpack-cli": "^3.1.1",
     "webpack-dev-server": "^3.1.8",
-    "workbox-cli": "^2.1.3"
+    "workbox-cli": "^2.1.3",
+    "worker-loader": "^3.0.8"
   },
   "dependencies": {
+    "concurrently": "^7.4.0",
     "formik": "^2.2.9",
     "localforage": "^1.10.0",
     "prop-types": "^15.8.1",
@@ -36,6 +39,7 @@
     "react-hot-loader": "^4.13.0",
     "react-router": "^6.4.1",
     "react-router-dom": "^6.4.1",
+    "webpack-bundle-optimizer": "^1.0.2",
     "yup": "^0.32.11"
   }
 }

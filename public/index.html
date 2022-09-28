@@ -23,8 +23,10 @@
     <script>
       // var deferredPrompt;
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('./sw.js', { scope: '/', type: 'module' }).then(() => {
-          console.log('Service worked registered!');
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./rkv-service-worker.js', { scope: '/' }).then(() => {
+            console.log('Service worked registered!');
+          });
         });
       }
 
