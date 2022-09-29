@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "concurrently \"npm run sw:start\" \"webpack-dev-server --mode development\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "test-commit": "jest --coverage",
+    "test-update": "jest --updateSnapshot",
     "build": "webpack --mode development",
     "doc:dev": "mkdocs serve -f documentation/mkdocs.yml",
     "generate-sw": "workbox inject:manifest",
@@ -37,8 +39,12 @@
     "worker-loader": "^3.0.8"
   },
   "dependencies": {
+    "@types/jest": "^29.1.0",
     "concurrently": "^7.4.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
     "formik": "^2.2.9",
+    "jest": "^29.1.1",
     "localforage": "^1.10.0",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
