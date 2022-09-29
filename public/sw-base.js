@@ -13,10 +13,14 @@ workbox.core.setCacheNameDetails({
   suffix: 'bundle'
 });
 
-self.addEventListener('activate', () => {
+self.addEventListener('activate', event => {
   self.skipWaiting();
   self.clients.claim();
-  self.registration.navigationPreload.enable();
+  event.waitUntil(async function () {
+    if ('navigationPreload' in self.registration) {
+      self.registration.navigationPreload.enable();
+    }
+  });
 
   //   event.waitUntil(
   //     caches.open(cacheNames.precache).then(function (cache) {
@@ -32,6 +36,7 @@ self.addEventListener('activate', () => {
   //     })
   //   );
 });
+
 registerRoute(
   ({ url }) => {
     console.log(url);
