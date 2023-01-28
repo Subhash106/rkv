@@ -1,16 +1,15 @@
-import React from "react";
-import { hot } from "react-hot-loader";
-import "./App.css";
-import Home from "./components/Home";
-import Backdrop from "./components/shared/Backdrop";
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import './App.css';
+import Home from './components/Home';
+import Orders from './components/Orders';
 const App = () => {
-  //   return (
-  //     <div>
-  //       <h1>Hello there</h1>
-  //       <Backdrop />
-  //     </div>
-  //   );
-  return <Home />;
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="orders" element={<Orders />} />
+    </Routes>
+  );
 };
 
-export default hot(module)(App);
+export default App;

@@ -1,6 +1,6 @@
 .home {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr;
 }
 
 @media (max-width: 44rem) {

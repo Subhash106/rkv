@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './style.css';
 
 const Header = () => {
@@ -7,25 +8,22 @@ const Header = () => {
       <div className="container">
         <header className="main-header">
           <div className="logo-box">
-            <img src="../../../img/logo.jpg" alt="Logo" className="logo" />
+            <NavLink to="/">
+              <img src="../../../img/logo.jpg" alt="Logo" className="logo" />
+            </NavLink>
           </div>
 
           <div className="top-nav">
             <ul>
               <li>
-                <a className="top-nav-link active" href="/">
+                <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>
                   Home
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a className="top-nav-link" href="#">
-                  Profile
-                </a>
-              </li>
-              <li>
-                <a className="top-nav-link" href="#">
-                  Sale
-                </a>
+                <NavLink to="/orders" className={({ isActive }) => (isActive ? 'active' : '')}>
+                  Orders
+                </NavLink>
               </li>
             </ul>
           </div>
