@@ -8,10 +8,11 @@
     "test": "jest",
     "test-commit": "jest --coverage",
     "test-update": "jest --updateSnapshot",
-    "build": "webpack --mode production",
+    "build": "concurrently \"npm run sw:build\" \"webpack-dev-server --mode production\"",
     "doc:dev": "mkdocs serve -f documentation/mkdocs.yml",
     "generate-sw": "workbox inject:manifest",
-    "sw:start": "webpack --config public/webpack.config.js --watch"
+    "sw:start": "webpack --config public/webpack.config.js --watch",
+    "sw:build": "webpack --config public/webpack.config.js"
   },
   "author": "Subhash Chandra",
   "license": "ISC",
