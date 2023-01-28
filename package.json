@@ -8,12 +8,12 @@
     "test": "jest",
     "test-commit": "jest --coverage",
     "test-update": "jest --updateSnapshot",
-    "build": "webpack --mode development",
+    "build": "webpack --mode production",
     "doc:dev": "mkdocs serve -f documentation/mkdocs.yml",
     "generate-sw": "workbox inject:manifest",
     "sw:start": "webpack --config public/webpack.config.js --watch"
   },
-  "author": "",
+  "author": "Subhash Chandra",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.1.0",
