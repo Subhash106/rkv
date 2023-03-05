@@ -5,7 +5,7 @@ import TextInput from '../../shared/TextInput';
 
 const SalesFormFields = props => {
   const { values, handleChange, setFieldValue, handleSubmit } = props;
-  const { mobile, firstName, lastName, address, items, subTotal } = values;
+  const { mobile, firstName, lastName, address, items, subTotal, date } = values;
 
   useEffect(() => {
     const subTotal = items.reduce((total, next) => {
@@ -32,8 +32,9 @@ const SalesFormFields = props => {
         <TextInput onChange={handleChange} value={firstName} id="firstName" name="firstName" label="First Name" />
         <TextInput onChange={handleChange} value={lastName} id="lastName" name="lastName" label="Last Name" />
       </div>
-      <div className="row col-md-1">
+      <div className="row col-md-2">
         <TextInput onChange={handleChange} value={address} id="address" name="address" label="Address" />
+        <TextInput onChange={handleChange} value={date} id="date" name="date" label="Date" />
       </div>
 
       <div className="row col-md-1">

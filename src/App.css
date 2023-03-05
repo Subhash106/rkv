@@ -10,7 +10,8 @@
 /* Tints: #409651 */
 :root {
   --white: #ffffff;
-  --primary-gray: #343a40;
+  --primary-gray: #777;
+  --primary-gray-dark: #333;
   --tint-gray: #343a40;
   --tint-2-gray: #ccc;
   --secondary-gray: #adb5bd;

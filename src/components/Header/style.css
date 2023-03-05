@@ -1,5 +1,3 @@
-$color-red: red;
-
 .header {
   grid-column: 1/-1;
   border-bottom: 1px solid var(--secondary-gray);
@@ -28,14 +26,15 @@ $color-red: red;
 .top-nav a:link,
 .top-nav a:visited,
 .top-nav a.inactive {
-  color: $color-red;
+  color: var(--primary-gray);
   text-decoration: none;
   font-size: 1.8rem;
-  font-weight: 700;
+  font-weight: 700; 
+  display: block;
 }
 
 .top-nav a:hover,
 .top-nav a:active,
 .top-nav a.active {
-  color: var(--primary-gray);
+  color: var(--primary-gray-dark);
 }
