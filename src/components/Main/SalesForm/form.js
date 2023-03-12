@@ -7,6 +7,8 @@ const SalesFormFields = props => {
   const { values, handleChange, setFieldValue, handleSubmit } = props;
   const { mobile, firstName, lastName, address, items, subTotal, date } = values;
 
+  console.log('date', date);
+
   useEffect(() => {
     const subTotal = items.reduce((total, next) => {
       return next.rate * next.quantity + total;
@@ -34,7 +36,16 @@ const SalesFormFields = props => {
       </div>
       <div className="row col-md-2">
         <TextInput onChange={handleChange} value={address} id="address" name="address" label="Address" />
-        <TextInput onChange={handleChange} value={date} id="date" name="date" label="Date" />
+        <TextInput
+          type="date"
+          onChange={handleChange}
+          value={date}
+          required
+          pattern="\d{4}-\d{2}-\d{2}"
+          id="date"
+          name="date"
+          label="Date"
+        />
       </div>
 
       <div className="row col-md-1">

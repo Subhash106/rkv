@@ -8,7 +8,7 @@ import './style.css';
 
 const SalesForm = () => {
   const formData = {
-    date: moment().format('DD/MM/YYYY'),
+    date: moment().format('YYYY-MM-DD'),
     mobile: '',
     firstName: '',
     lastName: '',

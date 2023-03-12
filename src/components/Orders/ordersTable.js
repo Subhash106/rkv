@@ -1,5 +1,6 @@
 import { array, string } from 'prop-types';
 import React from 'react';
+import moment from 'moment';
 
 import './style.css';
 
@@ -30,7 +31,7 @@ const OrdersTable = props => {
                 {order.items.map(item => `${item.quantity}-${item.item}(${item.rate})`).join(', ')}
               </td>
               <td className="text-right">{order.subTotal}</td>
-              <td className="text-right">{order.date}</td>
+              <td className="text-right">{moment(order.date).format('DD/MM/YYYY')}</td>
             </tr>
           ))}
         </tbody>
