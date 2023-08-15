@@ -1,7 +1,7 @@
 import { func, object, shape } from 'prop-types';
 import React, { useEffect } from 'react';
 import Button from '@mui/material/Button';
-import TextInput from '../../shared/TextInput';
+import TextField from '@mui/material/TextField';
 
 const SalesFormFields = props => {
   const { values, handleChange, setFieldValue, handleSubmit } = props;
@@ -30,13 +30,35 @@ const SalesFormFields = props => {
         <h1 className="heading-primary">Enter sale details and save</h1>
       </div>
       <div className="row col-md-3 col-sm-1">
-        <TextInput onChange={handleChange} value={mobile} id="mobile" name="mobile" label="Mobile" />
-        <TextInput onChange={handleChange} value={firstName} id="firstName" name="firstName" label="First Name" />
-        <TextInput onChange={handleChange} value={lastName} id="lastName" name="lastName" label="Last Name" />
+        <TextField variant="outlined" onChange={handleChange} value={mobile} id="mobile" name="mobile" label="Mobile" />
+        <TextField
+          variant="outlined"
+          onChange={handleChange}
+          value={firstName}
+          id="firstName"
+          name="firstName"
+          label="First Name"
+        />
+        <TextField
+          variant="outlined"
+          onChange={handleChange}
+          value={lastName}
+          id="lastName"
+          name="lastName"
+          label="Last Name"
+        />
       </div>
       <div className="row col-md-2">
-        <TextInput onChange={handleChange} value={address} id="address" name="address" label="Address" />
-        <TextInput
+        <TextField
+          variant="outlined"
+          onChange={handleChange}
+          value={address}
+          id="address"
+          name="address"
+          label="Address"
+        />
+        <TextField
+          variant="outlined"
           type="date"
           onChange={handleChange}
           value={date}
@@ -64,7 +86,8 @@ const SalesFormFields = props => {
               <tr key={index}>
                 <th>{index + 1}</th>
                 <th>
-                  <TextInput
+                  <TextField
+                    variant="outlined"
                     onChange={handleChange}
                     value={el.item}
                     id={`items[${index}].item`}
@@ -73,7 +96,8 @@ const SalesFormFields = props => {
                   />
                 </th>
                 <th>
-                  <TextInput
+                  <TextField
+                    variant="outlined"
                     onChange={handleChange}
                     className="text-right"
                     value={el.quantity}
@@ -83,7 +107,8 @@ const SalesFormFields = props => {
                   />
                 </th>
                 <th>
-                  <TextInput
+                  <TextField
+                    variant="outlined"
                     onChange={handleChange}
                     className="text-right"
                     value={el.rate}
@@ -112,7 +137,7 @@ const SalesFormFields = props => {
           <Button color="success" variant="contained" onClick={() => handleSubmit(values)} className="btn-gray">
             Save
           </Button>
-          <Button color="secondary" variant="contained" onClick={addItemHandler}>
+          <Button color="secondary" variant="contained" onClick={() => addItemHandler()}>
             Add Item
           </Button>
         </div>
