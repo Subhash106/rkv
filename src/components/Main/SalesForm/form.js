@@ -1,6 +1,6 @@
 import { func, object, shape } from 'prop-types';
 import React, { useEffect } from 'react';
-import Button from '../../shared/Button';
+import Button from '@mui/material/Button';
 import TextInput from '../../shared/TextInput';
 
 const SalesFormFields = props => {
@@ -109,10 +109,12 @@ const SalesFormFields = props => {
       <div className="row col-md-2">
         <div />
         <div className="row col-md-2">
-          <Button onClick={() => handleSubmit(values)} className="btn-gray">
+          <Button color="success" variant="contained" onClick={() => handleSubmit(values)} className="btn-gray">
             Save
           </Button>
-          <Button onClick={addItemHandler}>Add Item</Button>
+          <Button color="secondary" variant="contained" onClick={addItemHandler}>
+            Add Item
+          </Button>
         </div>
       </div>
     </div>

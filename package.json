@@ -4,7 +4,7 @@
   "description": "React setup from scartch",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"npm run sw:start\" \"webpack-dev-server --mode development\"",
+    "start": "concurrently \"npm run sw:start\" \"webpack-dev-server --mode development --open\"",
     "test": "jest",
     "test-commit": "jest --coverage",
     "test-update": "jest --updateSnapshot",
@@ -40,6 +40,9 @@
     "worker-loader": "^3.0.8"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.14.5",
     "@types/jest": "^29.1.0",
     "concurrently": "^7.4.0",
     "enzyme": "^3.11.0",
