@@ -1,4 +1,5 @@
 import { Formik } from 'formik';
+import moment from 'moment';
 // import Yup from 'yup';
 import React from 'react';
 import { DB, isOffline } from '../../shared/utilities';
@@ -7,6 +8,7 @@ import './style.css';
 
 const SalesForm = () => {
   const formData = {
+    date: moment().format('YYYY-MM-DD'),
     mobile: '',
     firstName: '',
     lastName: '',

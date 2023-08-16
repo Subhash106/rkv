@@ -4,5 +4,6 @@ module.exports = {
     '\\.(gif|ttf|eot|svg)$': '<rootDir>/__mocks__/fileMock.js'
   },
   verbose: true,
-  setupFilesAfterEnv: ['./setupTests.js']
+  setupFilesAfterEnv: ['./setupTests.js'],
+  testEnvironment: 'jsdom'
 };

@@ -1,11 +1,13 @@
 import { func, object, shape } from 'prop-types';
 import React, { useEffect } from 'react';
-import Button from '../../shared/Button';
-import TextInput from '../../shared/TextInput';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 const SalesFormFields = props => {
   const { values, handleChange, setFieldValue, handleSubmit } = props;
-  const { mobile, firstName, lastName, address, items, subTotal } = values;
+  const { mobile, firstName, lastName, address, items, subTotal, date } = values;
+
+  console.log('date', date);
 
   useEffect(() => {
     const subTotal = items.reduce((total, next) => {
@@ -28,12 +30,44 @@ const SalesFormFields = props => {
         <h1 className="heading-primary">Enter sale details and save</h1>
       </div>
       <div className="row col-md-3 col-sm-1">
-        <TextInput onChange={handleChange} value={mobile} id="mobile" name="mobile" label="Mobile" />
-        <TextInput onChange={handleChange} value={firstName} id="firstName" name="firstName" label="First Name" />
-        <TextInput onChange={handleChange} value={lastName} id="lastName" name="lastName" label="Last Name" />
+        <TextField variant="outlined" onChange={handleChange} value={mobile} id="mobile" name="mobile" label="Mobile" />
+        <TextField
+          variant="outlined"
+          onChange={handleChange}
+          value={firstName}
+          id="firstName"
+          name="firstName"
+          label="First Name"
+        />
+        <TextField
+          variant="outlined"
+          onChange={handleChange}
+          value={lastName}
+          id="lastName"
+          name="lastName"
+          label="Last Name"
+        />
       </div>
-      <div className="row col-md-1">
-        <TextInput onChange={handleChange} value={address} id="address" name="address" label="Address" />
+      <div className="row col-md-2">
+        <TextField
+          variant="outlined"
+          onChange={handleChange}
+          value={address}
+          id="address"
+          name="address"
+          label="Address"
+        />
+        <TextField
+          variant="outlined"
+          type="date"
+          onChange={handleChange}
+          value={date}
+          required
+          pattern="\d{4}-\d{2}-\d{2}"
+          id="date"
+          name="date"
+          label="Date"
+        />
       </div>
 
       <div className="row col-md-1">
@@ -52,7 +86,8 @@ const SalesFormFields = props => {
               <tr key={index}>
                 <th>{index + 1}</th>
                 <th>
-                  <TextInput
+                  <TextField
+                    variant="outlined"
                     onChange={handleChange}
                     value={el.item}
                     id={`items[${index}].item`}
@@ -61,7 +96,8 @@ const SalesFormFields = props => {
                   />
                 </th>
                 <th>
-                  <TextInput
+                  <TextField
+                    variant="outlined"
                     onChange={handleChange}
                     className="text-right"
                     value={el.quantity}
@@ -71,7 +107,8 @@ const SalesFormFields = props => {
                   />
                 </th>
                 <th>
-                  <TextInput
+                  <TextField
+                    variant="outlined"
                     onChange={handleChange}
                     className="text-right"
                     value={el.rate}
@@ -97,10 +134,12 @@ const SalesFormFields = props => {
       <div className="row col-md-2">
         <div />
         <div className="row col-md-2">
-          <Button onClick={() => handleSubmit(values)} className="btn-gray">
+          <Button color="success" variant="contained" onClick={() => handleSubmit(values)} className="btn-gray">
             Save
           </Button>
-          <Button onClick={addItemHandler}>Add Item</Button>
+          <Button color="secondary" variant="contained" onClick={() => addItemHandler()}>
+            Add Item
+          </Button>
         </div>
       </div>
     </div>
