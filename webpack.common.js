@@ -3,7 +3,6 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: './src/index.js',
-  mode: 'development',
   module: {
     rules: [
       {
@@ -28,13 +27,10 @@ module.exports = {
     path: path.resolve(__dirname, 'dist/'),
     publicPath: 'dist/',
     filename: 'bundle.js'
-  },
-  devServer: {
-    contentBase: path.join(__dirname, 'public/'),
-    port: 3000,
-    publicPath: 'http://localhost:3000/dist/',
-    hotOnly: true,
-    historyApiFallback: true
-  },
-  plugins: [new webpack.HotModuleReplacementPlugin()]
+  }
+  //   optimization: {
+  //     splitChunks: {
+  //       chunks: 'all'
+  //     }
+  //   }
 };
