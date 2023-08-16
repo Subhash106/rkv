@@ -11,8 +11,8 @@
     "build": "concurrently \"npm run sw:build\" \"webpack --config webpack.prod.js --mode production\"",
     "doc:dev": "mkdocs serve -f documentation/mkdocs.yml",
     "generate-sw": "workbox inject:manifest",
-    "sw:start": "webpack --config public/webpack.config.js --watch",
-    "sw:build": "webpack --config public/webpack.config.js"
+    "sw:start": "webpack --config public/webpack.config.js --mode development --watch",
+    "sw:build": "webpack --config public/webpack.config.js --mode production"
   },
   "author": "Subhash Chandra",
   "license": "ISC",
