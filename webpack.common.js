@@ -25,15 +25,16 @@ module.exports = {
   },
   resolve: { extensions: ['*', '.js', '.jsx'] },
   output: {
-    path: path.resolve(__dirname, 'public'),
-    filename: 'bundle.js'
-  }
-  // plugins: [
-  //   new HtmlWebpackPlugin({
-  //     template: path.resolve(__dirname, 'public/index.html'),
-  //     inject: true
-  //   })
-  // ]
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+    clean: true
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'public/index.html'),
+      inject: true
+    })
+  ]
   //   optimization: {
   //     splitChunks: {
   //       chunks: 'all'
